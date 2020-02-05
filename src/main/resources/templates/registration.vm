@@ -1,27 +1,33 @@
 <html>
     <head>
         <title>PAT Registration</title>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="public/css/app.css">
     </head>
     <body>
-        #parse ("common/header.vm")
-        <div class="bannerText">
-            <h1>
-                <span>Java Meetup Registration</span>
-            </h1>
-        </div>
-        <form>
-            Extend the form and bind the "Submit" button to store the entered information using the REST resource RegistrationResource.
-            The form should support to enter the following information:<br>
-            - Name (required)<br>
-            - Password (required)<br>
-            - Address (required)<br>
-            - Email (required)<br>
-            - Phone number
-            <p><input class="btn btn-default" type="submit" value="Submit"></p>
-        </form>
-        #parse ("common/footer.vm")
+    	<div class="container">
+	        #parse ("common/header.vm")
+	        <div class="bannerText">
+	            <h1>
+	                <span>Java Meetup Registration</span>
+	            </h1>
+	        </div>
+			#if( $notify )
+			    <div class="alert alert-danger">
+				  <strong>Sorry!</strong> $!{notify}
+				</div>
+			#end
+			#if( $success )
+			    <div class="alert alert-success">
+				  <strong>Thank you!</strong> $!{success}
+				</div>
+				#parse ("views/participant.vm")
+			#else
+	      		#parse ("views/form.vm")
+	        #end
+	        #parse ("common/footer.vm")
+    	</div> <!-- ./container -->
     </body>
 </html>

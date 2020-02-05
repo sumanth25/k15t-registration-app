@@ -1,0 +1,11 @@
+<table class="table">
+  <tbody>
+	#if($regDetails)
+	    <tr><th scope="row">Full Name:</th><td>$regDetails.fullName</td></tr>
+	    <tr><th scope="row">Password:</th><td>$regDetails.password</td></tr>
+	    <tr><th scope="row">Address:</th><td>$regDetails.address</td></tr>
+	    <tr><th scope="row">Email:</th><td>$regDetails.email</td></tr>
+	    <tr><th scope="row">Phone number:</th><td>$regDetails.phone</td></tr>
+	#end
+   </tbody>
+</table>
