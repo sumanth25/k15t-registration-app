@@ -1,44 +1,25 @@
-# Full-Stack Developer Sample Project
+# Java Meetup Registraton
 
+We have a small web application allowing to register for the next Java Meetup. A participant can register himself by filling the registration form displayed. On registering, a success information to the user including the entered information.
 
-## What is it about?
-Here we have a small web application allowing to register for the next Java Meetup.
-Unfortunately the most important part of the app is still missing. The form 
-fields as well as the backend to store the data in memory. But you are here to 
-help us out and get it done.
- 
-## But *what* should I do exactly?
-Extend the form with the required fields (see registration.vm for further details) and 
-store the entered information by using a REST endpoint. Giv the user feedback if the
-save was successful or in case of an error. Ensure mandatory fields will be entered
-and verify the entered values are reasonable e.g. the name must not contains numbers.
+### Prerequisites
 
-To start with, please see the already created files and classes. Especially:
+What things you need to install before starting
 
-* com.k15t.pat.registration: The package includes a REST endpoint and a controller
-* resources/templates: The folder includes the initial velocity templates for the registration page 
+```
+JDK 1.8
+SourceTreeSetup-3.3.6/TortoiseGit
+Eclipse JEE
+Maven
+```
 
-The Maven build creates a executable jar which includes the whole runtime (tomcat) to run the app.
-You can start it with java -jar registration-0.1.0.jar. If the application is started the pages are
-available under http://localhost:8080/registration.html
+## Getting Started
 
-## A few words about the technology stack
-The application is build on top of Spring Boot (http://projects.spring.io/spring-boot/) providing a runtime container. 
-Furthermore Jersey for implementing REST resources, Velocity for templating pages and jQuery/Bootstrap is included and 
+These instructions will help you to get your project up and running on your local machine for development and testing purposes. The application is build on top of Spring Boot (http://projects.spring.io/spring-boot/) providing a runtime container. 
+Furthermore Jersey for implementing REST resources, Velocity for templating pages and jQuery and Bootstrap is included and 
 can be used as well. Building and packaging the application is done with Maven. 
 
-## What's expected of me?
-When our engineers receive your final result, we'll be looking at the following things:
-
-* The documentation provided. Please consider to document assumptions or decisions you made (e.g. technologies used). Clear and concise documentation is a must for a senior role. The documentation should start in the README.md, which can then contain links/pointers into any further documentation.
-* The ability to build it out of the box using maven
-* Improvements you made around the main task  
-* The quality and style of code written
-* The tests and their structure and coverage
-* The choice of technologies used to complete the task. You are free to use whatever you think is needed and helps you to get it done!
-
-Typically we expect it to compile and run on a Mac environment with Java 8. If your set up is any different, do let us know!
-When you are done share the result via GitHub.
+The source is available as public at https://bitbucket.org/sumanth717/k15t-registration-app/src/master/ 
 
 ## How to use git ##
 
@@ -46,18 +27,107 @@ To use git to get repository contents run the following git command:
 
 ```
 #!bash
-git clone https://bitbucket.org/K15t/k15t-full-stack-dev-tasks.git
+git clone https://bitbucket.org/sumanth717/k15t-registration-app.git
+```
+## Repository Overview ##
+Please find the package level details of the cloned repository below:
+
+* com.k15t.pat.registration: The package includes a REST endpoint and a service
+* com.k15t.pat.registration.dao: The package having Data Access Object extends JPA repository to store and fetch from H2 DB
+* com.k15t.pat.registration.model: The package has Model class containing all required fields for participant registration
+ * along with validation
+* com.k15t.pat.registration.service: The package includes interfaces to register participant
+* com.k15t.pat.registration.service.impl: The package includes implementation for registering participant
+* com.k15t.pat.registration.util: The package includes Util classes required for registration application
+* com.k15t.pat.registration.constants: The package includes constants required for registration application
+* resources/templates: The folder includes registration velocity template forming the main layout for the registration page 
+* resources/templates/views: The folder includes the registration form velocity template for the registration page and participant velocity template for displaying success message along with registration details
+* resources/templates/common: The folder includes the initial velocity templates for the header and footer for registration page
+* resources/public/: The folder includes resources like css, images and index html
+* pom.xml: This file has all maven dependencies required for registration application
+
+### Installing
+
+The Maven build creates a executable jar which includes the whole runtime (tomcat) to run the app.
+You can start it with java -jar registration-0.1.0.jar. If the application is started the pages are
+available under http://localhost:8080/registration.html
+
+```
+java -jar registration-0.1.0.jar
 ```
 
-Afterwards create a repository in your github or Bitbucket account and configure this empty repository as the remote origin:
+And view in browser
 
 ```
-#!bash
-git remote set-url origin git@github.com:you/yourrepo.git
-git push
+http://localhost:8080/registration.html
 ```
-In this way you have now a clean repository and can start to commit to it and we will be able to distinguish between what was your contribution and what was already there. Please do not copy everything into an empty repo and then add all files, this will make the git log and diff a mess.
 
-Tip: Use git as you would in a product environment - small, meaningful commits with descriptive commit messages. This makes it easy for the reviewer to follow your steps and comprehend what you are doing.
+To start with:
 
-Good luck!
+* Enter valid inputs for the form fields: Full Name (required), Password (required), Address (required), Email (required), Phone number (optional)
+* Click on Register button below
+* If validation errors exist, correct them and click on Register button again 
+* On Success, message is displayed and participant details are shown
+* If already registered participant, error message is displayed saying already registered 
+
+## Main improvements
+* Bean Validation
+* Spring Data JPA
+* H2 In-memory Database
+* lombok
+* bootstrap 4.0.0
+
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+* The Maven build creates a executable jar which includes the whole runtime (tomcat) to run the app registration-0.1.0.jar.
+* Use jenkins job to automate this build process or move the executable jar in production environment
+* Use jenkins job or batch scripts to automate start/stop. You can manually start it with java -jar registration-0.1.0.jar. 
+* Use batch script to re-start registraton application on server reboot
+* Install SSL certificates and enable secure HTTPS communication
+* Apply for new DNS name
+* Ensure firewall rules don't block the application port else apply exemption for this port
+* The registration application is now available for all at http://k15t.java.meetup/registration.html
+
+## Built With
+* [Spring Boot] (http://projects.spring.io/spring-boot/) - Web framework providing a runtime container
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [Velocity](https://velocity.apache.org/) - Provides the actual templating engine to build UI
+
+## Versioning
+
+For the versions available, see the [tags on this repository](https://bitbucket.org/sumanth717/k15t-registration-app/tags). 
+
+## Authors
+
+* **K15t** - *Initial work* - (https://bitbucket.org/K15t/k15t-full-stack-dev-tasks)
+* **Sumanth Sudeendra** - *Improvements* - (https://bitbucket.org/sumanth717/k15t-registration-app)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Thank You K15t!
+
