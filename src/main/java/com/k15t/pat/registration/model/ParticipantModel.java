@@ -9,6 +9,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
+import lombok.Data;
+
 /**
  * This Model class contains all required fields for participant registration
  * along with validation It supports below fields Full Name (required)<br>
@@ -19,6 +21,7 @@ import org.hibernate.validator.constraints.Email;
  * 
  * @author Sumanth
  */
+@Data
 @Entity
 public class ParticipantModel {
 	@Id
@@ -50,43 +53,4 @@ public class ParticipantModel {
 	@Pattern(regexp = "^\\+(?:[0-9] ?){6,14}[0-9]$", message = "Please enter valid phone number along with country code")
 	private String phone;
 
-	public String getFullName() {
-		return fullName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 }
