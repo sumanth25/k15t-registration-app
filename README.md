@@ -87,12 +87,12 @@ To start with:
 * Use jenkins job or batch scripts to automate start/stop. You can manually start it with java -jar registration-0.1.0.jar. 
 * Use batch script to re-start registraton application on server reboot
 * Install SSL certificates and enable secure HTTPS communication
-* Apply for new DNS name
+* Apply for new DNS name (k15t.java.meetup)
 * Ensure firewall rules don't block the application port else apply exemption for this port
 * The registration application is now available for all at http://k15t.java.meetup/registration.html
 
 ## Built With
-* [Spring Boot] (http://projects.spring.io/spring-boot/) - Web framework providing a runtime container
+* [SpringBoot] (http://projects.spring.io/spring-boot/) - Web framework providing a runtime container
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Velocity](https://velocity.apache.org/) - Provides the actual templating engine to build UI
 
