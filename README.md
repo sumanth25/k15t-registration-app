@@ -62,14 +62,6 @@ And view in browser
 http://localhost:8080/registration.html
 ```
 
-To start with:
-
-* Enter valid inputs for the form fields: Full Name (required), Password (required), Address (required), Email (required), Phone number (optional)
-* Click on Register button below
-* If validation errors exist, correct them and click on Register button again 
-* On Success, message is displayed and participant details are shown
-* If already registered participant, error message is displayed saying already registered 
-
 ## Main improvements
 * Bean Validation
 * Spring Data JPA
@@ -80,23 +72,13 @@ To start with:
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To start with:
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+* Enter valid inputs for the form fields: Full Name (required), Password (required), Address (required), Email (required), Phone number (optional)
+* Click on Register button below
+* If validation errors exist, correct them and click on Register button again 
+* On Success, message is displayed and participant details are shown
+* If already registered participant, error message is displayed saying already registered 
 
 ## Deployment
 
