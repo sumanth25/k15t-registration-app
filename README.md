@@ -92,8 +92,8 @@ To start with:
 * The registration application is now available for all at http://k15t.java.meetup/registration.html
 
 ## Built With
-* [SpringBoot] (http://projects.spring.io/spring-boot/) - Web framework providing a runtime container
 * [Maven](https://maven.apache.org/) - Dependency Management
+* [SpringBoot](https://spring.io/projects/spring-boot/) - makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
 * [Velocity](https://velocity.apache.org/) - Provides the actual templating engine to build UI
 
 ## Versioning
